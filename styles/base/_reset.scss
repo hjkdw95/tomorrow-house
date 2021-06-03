@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    font-size: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    font-size: 'Noto Sans KR', sans-serif;
+}
+
+h1 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    border: none;
+    background-color: transparent;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding-left: 0;
+}
