@@ -1,11 +1,13 @@
 /*
 * MOBILE (< 768px)------------------------------------------
+* fixture..........................sm
 * # of columns.....................4
 * gutter...........................20px
 * container-size...................100% - (5px * 2)
 * margin...........................5px
 *
 * TABLET (>= 768px)------------------------------------------
+* fixture..........................md
 * # of columns.....................12
 * gutter...........................20px
 * container-size...................100% - (30px * 2)
@@ -13,6 +15,7 @@
 * max-container-size...............960px
 *
 * TABLET (>= 1200px)------------------------------------------
+* fixture..........................lg
 * # of columns.....................12
 * unit.............................75px
 * gutter...........................20px
@@ -20,3 +23,33 @@
 * margin...........................auto
 * max-container-size...............1140px
 */
+
+$gutter: 20px;
+
+$sm-columns: 4;
+$sm-margin: 5px;
+
+//conatiner 만들기
+.container {
+    width: 100%;
+    padding: 0 $sm-margin;
+    margin: 0 auto; //화면 정중앙에 배치 
+
+    // row = 가로 정렬
+    .row {
+        display: flex;
+        flex-wrap: wrap; //유닛의 사이즈가 보전되도록
+    }
+
+    // .col-sm-1, .col-md-2, .col-lg-3
+    [class^='col-']{
+        padding: 0 $gutter/2;
+    }
+
+    //반복문
+    @for $i from 1 through $sm-columns {
+        .col-sm-#{$i} { //#{}이렇게 묶어주면 반복문이 반영된 형태로 css에 저장된다
+            width: percentage($i / $sm-columns); //percentage: 백분위 구해준다
+        }
+    }
+}
