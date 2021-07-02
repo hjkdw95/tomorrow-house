@@ -1,0 +1,24 @@
+@mixin responsive($screen) {
+    @if ($screen == 'T') {
+        @media screen and (min-width: $md-breakpoint) {
+            @content; // 이렇게 적어야만 나중에 호출해서 적는 내용들이 싹 다 mediaquery에 적용된다
+        }
+    } 
+    @if ($screen == 'D') {
+        @media screen and (min-width: $lg-breakpoint) {
+            @content;
+        }
+    }
+}
+
+// 사용 예
+// .section {
+//     @include responsive((T)){
+//         font-size: 10px;
+//         color: red;
+
+//         .ic-close {
+//             font-size: 20px;
+//         }
+//     }
+// }
