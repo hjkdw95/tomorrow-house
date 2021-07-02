@@ -7,7 +7,8 @@
 @import './base/_normalize';
 @import './base/_reset';
 
-@import './layouts/grids';
-
 @import './mixins/text-style';
 @import './mixins/responsive';
+@import './mixins/positions';
+
+@import './layouts/grids';
