@@ -1,0 +1,31 @@
+// 작은것 부터 만들어라
+// x축 기준으로 가운데 정렬
+@mixin pos-center-x($type: absolute) {
+    // 유효성 검사
+    @if ($type == fixed or $type == absolute) {
+        position: $type;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}  
+
+// y축 기준으로 가운데 정렬
+@mixin pos-center-y($type: absolute) {
+    // 유효성 검사
+    @if ($type == fixed or $type == absolute) {
+        position: $type;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+// 정가운데 정렬
+@mixin pos-center($type: absolute) {
+    // 유효성 검사
+    @if ($type == fixed or $type == absolute) {
+        position: $type;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
