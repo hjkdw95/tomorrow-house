@@ -1,0 +1,84 @@
+// 버튼 내용이 한가운데 적혀있고, 내용에 따라(폰트크기) 크기가 달라지기 때문에 inline-flex로 진행
+%btn-base {
+    @include inline-flexbox;
+    padding: 0 8px;
+    border-radius: 4px;
+    font-weight: 700;
+
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+}
+
+// NOTE : Button styles
+// NOTE : States
+// 버튼의 상태가 hover인지, disabled인지에 따라 변경되는 디자인 - 여기선 style에 추가함 
+.btn-primary {
+    @extend %btn-base;
+    color: $white;
+    background-color: $blue;
+    transition: background-color 200ms ease-in-out;
+
+    &:not(:disabled):hover { //primary버튼 중 disabled가 아닌 놈 중에 hover될 때
+        background-color: $blue-dark;
+    }
+}
+
+.btn-secondary {
+    @extend %btn-base;
+    color: $primary;
+    background-color: $border;
+    transition: background-color 200ms ease-in-out;
+
+    &:not(:disabled):hover {
+        background-color: $tertiary;
+    }
+}
+
+.btn-outline {
+    @extend %btn-base;
+    color: $blue;
+    background-color: $white;
+    border: 1px solid $blue;
+    transition: background-color 200ms ease-in-out;
+
+    &:not(:disabled):hover {
+        background-color: $blue-bright;
+    }
+}
+
+.btn-ghost {
+    @extend %btn-base;
+    color: $primary;
+    background-color: transparent;
+    transition: color 200ms ease-in-out;
+
+    &:not(:disabled):hover {
+        color: $secondary;
+    }
+}
+
+// NOTE : Button sizes
+// 버튼 사이즈(컴포넌트에서)는 width 값 지정해주지 않는게 좋다 -> heigth가 패턴이 있어서 height 기준으로 선언한다
+// 스타일에 %btn-base이미 사용해서 여기서는 굳이 중복하지 않는다. 사이즈만 기재!
+.btn-32 {
+    height: 32px;
+    @include text-style(14);
+}
+
+.btn-40 {
+    height: 40px;
+    @include text-style(16);
+}
+
+.btn-48 {
+    height: 48px;
+    @include text-style(16);
+}
+
+.btn-55 {
+    height: 55px;
+    @include text-style(18);
+}
