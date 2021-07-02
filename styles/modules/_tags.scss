@@ -1,0 +1,33 @@
+%tag-base {
+    //공통 스타일 선언
+    @include inline-flexbox;
+    @include text-style(12);
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+// % : placeholder 반복되는 코드를 사용하지 않겠다! 인자 못받음, 확장성 낮음.
+// -> 연관되어 있는 친구들끼리 공통 스타일을 갖고 있을 때 placeholder에 적어놓고 상속 받는 식으로 작업 진행
+// @extend 사용
+// mixin과 다르게 공통사항이 있기에 css파일에서도 묶기 가능(코드 량 좀 줄일듯)
+// mixin : 인자 받을 수 있다. 필요할 때마다 사용 가능
+
+.tag-red {
+    @extend %tag-base;
+    color: $white;
+    background-color: $red;
+}
+
+.tag-green {
+    @extend %tag-base;
+    color: $white;
+    background-color: $green;
+}
+
+.tag-grey {
+    @extend %tag-base;
+    color: $secondary;
+    background-color: $border;
+}
+
