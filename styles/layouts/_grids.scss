@@ -23,18 +23,17 @@
 * margin...........................auto
 * max-container-size...............1140px
 */
+@import '../mixins/responsive'; //main에 연결해놓았는데 왜 인식이 안되지?
 
 $gutter: 20px;
 
 $sm-columns: 4;
 $sm-margin: 5px;
 
-$md-breakpoint: 768px;
 $md-columns: 12;
 $md-margin: 30px;
 $md-max-container: 960px + $md-margin * 2; //container안에 row가 정확히 960px이 되어야 한다. 그냥 960적으면, padding으로 양옆에 margin준 것 까지 먹혀서 900으로 밖에 안나옴 -> 패딩 값 무시되도록 margin을 더해준다
 
-$lg-breakpoint: 1200px;
 $lg-columns: 12;
 $lg-unit: 75px;
 $lg-max-container: ($lg-unit + $gutter) * $lg-columns; //디자인 숫자 변경되는 경우를 대응하기 위해 최대한 변수 사용!!
@@ -63,7 +62,7 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns; //디자인 숫자 변경
         }
     }
 
-    @media screen and (min-width: $md-breakpoint){
+    @include responsive(T) {
         // 모바일 때랑 달라지는 것만 기재
         max-width: $md-max-container;
         padding: 0 $md-margin;
@@ -75,7 +74,7 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns; //디자인 숫자 변경
         }
     }
 
-    @media screen and (min-width: $lg-breakpoint){
+    @include responsive(D) {
         // 모바일 때랑 달라지는 것만 기재
         max-width: $lg-max-container;
         padding: 0;
